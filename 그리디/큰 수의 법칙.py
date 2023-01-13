@@ -35,3 +35,13 @@ print(count)
 #     M -= 1
     
 # print(count)           
+
+
+## 초과되는 경우 ...
+# 가장 큰 수가 더해지는 횟수 계산
+# count = int(M / (K + 1)) * K
+# count += M % (K + 1)
+
+# result = 0
+# result += (count) * first
+# result += (m-count) * second
