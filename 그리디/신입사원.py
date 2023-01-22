@@ -9,14 +9,14 @@ result = []
 
 for i in range(test_case) :
     result = []
-    cnt = 0
     num = int(input())
     for _ in range(num) :
         result.append(list(map(int, stdin.readline().split())))
     man_sorted = sorted(result, key = lambda x : x[0])
     
     
-    man = result[0][1]
+    man = man_sorted[0][1]
+    cnt = 1
     for m in range(1, num) :
         if man_sorted[m][1] < man :
             man = man_sorted[m][1]
