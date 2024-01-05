@@ -1,8 +1,5 @@
 def solution(n):
-    n_list = list(map(int, str(n)))
-    ans = []
-    for i in range(len(n_list), 0, -1):
-        ans.append(i)
-    return ans
+    n_list = [int(a) for a in reversed(str(n))]
+    return n_list
 
 print(solution(12345))
