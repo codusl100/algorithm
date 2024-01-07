@@ -2,7 +2,6 @@ from collections import deque
 import sys
 input = sys.stdin.readline
 N, K = map(int, input().split()) # 시험관 크기, 바이러스 최대
-S, X, Y = map(int, input().split())
 
 graph = []
 data = []
@@ -18,6 +17,8 @@ for i in range(N):
             data.append((graph[i][j], 0, i, j))
 
 data.sort()
+
+S, X, Y = map(int, input().split())
 
 def bfs(data):
     queue = deque(data)

@@ -16,6 +16,8 @@ def solution(s):
                 if left:
                     left.pop()
                     right.pop()
+                else:
+                    return False
         if left or right:
             return False
         else:

@@ -1,4 +1,7 @@
+import sys
 from collections import deque
+input = sys.stdin.readline
+
 N, M, K, X = map(int, input().split()) # 도시 개수, 도로 개수, 거리 정보, 출발 도시의 번호
 graph = [[] for _ in range(N+1)]
 visited = [-1] * (N+1)
@@ -16,8 +19,10 @@ def dfs(v):
             if visited[next_node] == -1: # 아직 방문 전
                 visited[next_node] = visited[now] + 1
                 q.append(next_node)
-check = False
+
 dfs(X)
+
+check = False
 for i in range(1, N+1):
     if visited[i] == K: # 최단 거리가 K인 경우 뽀바내기
         print(i)

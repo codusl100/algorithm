@@ -7,7 +7,6 @@ for i in range(3):
     for j in range(in_, out_):
         car[j] += 1
 ans = 0
-print(car)
 for i in car:
     if i == 1:
         ans += A * i

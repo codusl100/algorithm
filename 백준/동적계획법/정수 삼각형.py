@@ -4,13 +4,15 @@ dp = []
 for _ in range(N):
     dp.append(list(map(int, input().split())))
 
-for i in range(N):
-    for j in range(i):
-        if j == 0: # 왼쪽 위
+for i in range(1, N):
+    for j in range(i+1):
+        # 왼쪽 위 case
+        if j == 0:
             up_left = 0
         else:
             up_left = dp[i-1][j-1]
-        if j == i: # 바로 위
+        # 바로 위 case 
+        if j == i: 
             up = 0
         else:
             up = dp[i-1][j]
