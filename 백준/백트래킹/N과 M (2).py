@@ -8,7 +8,7 @@ def back(start):
     for i in range(start, N+1):
         if i not in ans:
             ans.append(i)
-            back(start+1) # 재귀
+            back(i+1) # 재귀
             ans.pop() # return으로 돌아오면 이게 실행
 
 back(1)
