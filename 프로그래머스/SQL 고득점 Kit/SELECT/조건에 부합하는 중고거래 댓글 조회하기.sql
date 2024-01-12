@@ -1,0 +1,6 @@
+SELECT board.TITLE, board.BOARD_ID, reply.REPLY_ID, reply.WRITER_ID, reply.CONTENTS, DATE_FORMAT(reply.CREATED_DATE, '%Y-%m-%d') AS CRAETED_DATE FROM USED_GOODS_BOARD as board
+inner join USED_GOODS_REPLY as reply ON board.BOARD_ID = reply.BOARD_ID
+WHERE SUBSTR(board.CREATED_DATE,1,7) = '2022-10'
+ORDER BY reply.CREATED_DATE asc, TITLE asc
+-- line 3
+-- DATE_FORMAT(board.CREATED_DATE, '%Y-%m') = '2022-10' -> X
