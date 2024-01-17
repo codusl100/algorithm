@@ -3,7 +3,6 @@ N, M = map(int, input().split())
 rect = [0] * N
 for i in range(N):
     rect[i] = list(map(int, input()))
-# rect = [list(map(int, list(input())) for _ in range(N))]
 
 ans = 0
 
