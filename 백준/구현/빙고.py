@@ -1,49 +1,70 @@
-graph = [[0] for i in range(5)]
-graph_list = []
+import sys
+input = sys.stdin.readline
 
-for i in range(5):
-    graph[i] = list(map(int, input().split()))
-    # 가로 추가
-    graph_list.append(graph[i])
+board = []
+for _ in range(5):
+    board.append(list(map(int, input().strip().split())))
 
-# 세로 추가
-for i in range(5):
-    column = []
-    for j in range(5):
-        column.append(graph[j][i])
-    graph_list.append(column)
+speak = []
+for _ in range(5):
+    speak.append(list(map(int, input().strip().split())))
 
-# 대각선 추가
-temp = []
-for i in range(5):
-    temp.append(graph[i][i])
-graph_list.append(temp)
+bingo = [[0] * 5 for _ in range(5)]
 
-temp = []
-for i in range(5):
-    temp.append(graph[i][4-i])
-graph_list.append(temp)
+def check_row():
+    res = 0
+    for i in range(5):
+        cnt = 0
+        for j in range(5):
+            if bingo[i][j] == 1:
+                cnt += 1
+        if cnt == 5:
+            res += 1
+    return res
 
-call = [int(x) for _ in range(5) for x in input().split()]
+def check_col():
+    res = 0
+    for i in range(5):
+        cnt = 0
+        for j in range(5):
+            if bingo[j][i] == 1:
+                cnt += 1
+        if cnt == 5:
+            res += 1
+    return res
+
+def check_dia():
+    res = 0
+    # 오 -> 왼
+    cnt = 0
+    for i in range(5):
+        if bingo[i][5 - i - 1] == 1:
+            cnt += 1
+    if cnt == 5:
+        res += 1
+    # 왼 -> 오
+    cnt = 0
+    for i in range(5):
+        if bingo[i][i] == 1:
+            cnt += 1
+    if cnt == 5:
+        res += 1
+    return res
 
 cnt = 0
-min_cnt = 26
-bingo = 0
-
-for i in range(len(call)):
-    # graph_list 조회해서 방문 체크
-    for j in range(12):
-        for k in range(5):
-            if graph_list[j][k] == call[i]:
-                graph_list[j][k] = 0
-    cnt += 1
-    
-    # 한 줄 빙고 발견하면 
-    for j in range(12):
-        if all(element == 0 for element in graph_list[j]):
-            graph_list[j] = [1, 1, 1, 1, 1]
-            bingo += 1
-        if bingo == 3:
-            min_cnt = min(cnt, min_cnt)
-            break
-print(min_cnt)
+for i in range(5):
+    for j in range(5):
+        s = speak[i][j]
+        for y in range(5):
+            for x in range(5):
+                if board[y][x] == s:
+                    cnt = 0
+                    bingo[y][x] = 1
+                    cnt += check_row() # 가로
+                    cnt += check_col() # 세로
+                    cnt += check_dia() # 대각선
+                    if cnt >= 3:
+                        print(
+                            i * 5 + j + 1
+                        )
+                        exit()
