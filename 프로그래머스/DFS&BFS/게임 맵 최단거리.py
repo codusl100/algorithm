@@ -14,9 +14,11 @@ def solution(maps):
             for i in range(4):
                 nx = x + dx[i]
                 ny = y + dy[i]
+                if nx < 0 or ny < 0 or nx >= n or ny >= m:
+                    continue
                 if maps[nx][ny] == 0:
                     continue
-                if (0 <= ny < n) and (0 <= nx < m) and maps[nx][ny] == 1 :
+                if maps[nx][ny] == 1 :
                         maps[nx][ny] = maps[x][y] + 1
                         queue.append((nx, ny))
         return maps[n-1][m-1]

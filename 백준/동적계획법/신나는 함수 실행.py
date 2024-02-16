@@ -1,17 +1,3 @@
-# dp = [[[1 for _ in range(102)] for _ in range(102)] for _ in range(102)]
-
-# for i in range(0, 101):
-#     for j in range(0, 101):
-#         for k in range(0, 101):
-#             if i <= 50 or j <= 50 or k <= 50:
-#                 dp[i][j][k] = 1
-#             elif i > 70 or j > 70 or k > 70:
-#                 dp[i][j][k] = dp[70][70][70]
-#             elif i < j and j < k:
-#                 dp[i][j][k] = dp[i][j][k - 1] + dp[i][j - 1][k - 1] - dp[i][j - 1][k]
-#             else:
-#                 dp[i][j][k] = dp[i - 1][j][k] + dp[i - 1][j - 1][k] + dp[i - 1][j][k - 1] - dp[i - 1][j - 1][k - 1]
-                     
 dp = [[[0] * 21 for _ in range(21)] for _ in range(21)]
 
 def w(a, b, c):

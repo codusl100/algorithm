@@ -23,7 +23,7 @@ def bfs():
 
         # A 물통 비는 경우 C 물통에 남아 있는 양 저장
         if x == 0:
-            answer.append(x)
+            answer.append(z)
         
         # A -> B:
         water = min(x, b - y)

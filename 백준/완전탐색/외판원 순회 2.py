@@ -6,9 +6,9 @@ visited = [False] * N
 
 result = 4000000
 
-def TSP(start, now, cost, depth):
+def TSP(start, now, cost, depth):  # 처음 번호, 현재 번호, 합, 갯수
     global result
-    if depth == N:
+    if depth == N and graph[now][start]:
         cost += graph[now][start]
         if result > cost:
             result = cost

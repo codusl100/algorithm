@@ -1,6 +1,3 @@
-import sys
-sys.setrecursionlimit(10**7)
-
 def solution(n, computers):
     visited = [0 for i in range(n)]
     result = 0

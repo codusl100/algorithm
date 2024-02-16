@@ -6,7 +6,6 @@ S = [[0]*(n+1) for i in range(n+1)]
 
 for i in range(1, n+1):
     graph_row = [0] + [int(x) for x in input().split()]
-    print(graph_row)
     graph.append(graph_row)
 
 for i in range(1, n+1):

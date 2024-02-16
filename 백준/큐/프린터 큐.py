@@ -1,21 +1,22 @@
+from collections import deque
 T = int(input())
 
 for i in range(T):
-    n, m = map(int, input().split()) # 문서 개수, 몇 번째 인쇄되었는지 궁금한 문서
-    arr = [int(i) for i in input().split()]
-    ans = 0
-    while True:
-        now = arr.pop(0)
-        if len(arr) == 0:
-            ans += 1
-            break
-        # print(now)
-        if now < max(arr):
-            arr.append(now)
-        else:
-            arr.pop()
-            ans += 1
-            if len(arr) == 0:
+    n, m = map(int, input().split())
+    q = deque(map(int, input().split()))
+    count = 0
+
+    while q:
+        best = max(q)
+        front = q.popleft() # q의 제일 앞
+        m -= 1
+
+        if best == front: # 뽑은 숫자가 제일 큰 숫자일 때
+            count += 1
+            if m < 0: # m이 0이면 뽑은 게 나의 숫자라는 뜻
+                print(count)
                 break
-        
-    print(ans)
+        else:
+            q.append(front)
+            if m < 0: # 제일 앞에서 뽑히면
+                m = len(q) - 1 # 제일 뒤로 이동
