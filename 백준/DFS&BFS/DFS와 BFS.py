@@ -35,22 +35,3 @@ bfs(graph, V, visited)
 
 print(' '.join(str(item) for item in dfs_list))
 print(' '.join(str(item) for item in bfs_list))
-
-
-def dfs(v):
-    visited[v] = 1
-    for i in graph[v]:
-        if visited[i] == 0:
-            dfs_list.append(i)
-            dfs(i)
-
-def bfs(graph, V, visited):
-    queue = deque([V])
-    visited[V] = 1
-    while queue:
-        q = queue.popleft()
-        for i in graph[q]:
-            if visited[i] == 0:
-                visited[i] = 1
-                bfs_list.append(i)
-                q.append(i)

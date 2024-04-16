@@ -2,8 +2,8 @@ N = int(input())
 arr = list(map(int, input().split()))
 plus, minus, mul, div = map(int, input().split())
 
-min_value = 1e9
-max_value = -1e9
+min_value = int(1e9)
+max_value = -int(1e9)
 
 def dfs(i, now):
     global min_value, max_value, plus, minus, mul, div

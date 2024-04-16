@@ -1,7 +1,8 @@
-nList = input().split()
-
-for n in nList:
-    n = int(n)
+while True:
+    try:
+        n = int(input())
+    except:
+        break
     num = 1
     cnt = 1
     while True:

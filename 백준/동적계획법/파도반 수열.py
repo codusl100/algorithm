@@ -1,11 +1,9 @@
 t = int(input())
-for i in range(t):
-    n = int(input())
-    p = [0] * (n+1)
-    p[1] = 1
-    p[2] = 1
-    p[3] = 1
-    if n > 3:
-        for j in range(4, n+1):
-            p[j] = p[j-3] + p[j-2]
-    print(p[n]) 
+arr = [0, 1, 1, 1, 2, 2, 3, 4, 5, 7, 9]
+
+for i in range(11,101):
+  arr.append(arr[i-2]+arr[i-3])
+
+for _ in range(t):
+  n = int(input())
+  print(arr[n]) 
