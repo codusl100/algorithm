@@ -5,6 +5,20 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "algorithm_d7ccf2ac"
+        },
+        {
+            "type": "java",
+            "name": "연습장2",
+            "request": "launch",
+            "mainClass": "백준.연습장2",
+            "projectName": "algorithm_d7ccf2ac"
+        },
+        {
             "name": "Python: Current File",
             "type": "python",
             "request": "launch",

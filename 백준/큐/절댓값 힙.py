@@ -1,8 +1,8 @@
-import heapq
-n = int(input())
+import sys, heapq
+n = int(sys.stdin.readline())
 q = []
 for i in range(n):
-    k = int(input())
+    k = int(sys.stdin.readline())
     if k == 0:
         if len(q) == 0:
             print(0)
