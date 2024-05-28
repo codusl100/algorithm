@@ -49,8 +49,6 @@ StringBuilder sb = new StringBuilder();
 for (int i = 0; i< N; i++){
     sb.append(arr.get(i) + "\n");
 }
-
-bw.write(sb.toString());
 bw.flush();
 bw.close();
 br.close();
